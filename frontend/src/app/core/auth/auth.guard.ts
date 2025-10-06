@@ -2,7 +2,7 @@ import { inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '@app/core/auth/auth.interface';
 import { Observable, map, of, tap } from 'rxjs';
-import { ConfigService } from '../services/config/config-service.interface';
+import { ConfigService } from '@fullswing-angular-library';
 
 export const AuthGuard = (): Observable<boolean> => {
   const router = inject(Router);
@@ -13,6 +13,7 @@ export const AuthGuard = (): Observable<boolean> => {
     map((isLoggedIn) => {
       if (!isLoggedIn) {
         // TODO check config is not already loaded
+        // TODO this doesn't actually work. The commented out authentication code on main.ts does
         configService.loadConfig$().subscribe(() => {
           authService.init();
         });
