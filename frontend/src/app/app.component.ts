@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { MenuItem } from '@app/shared/models/menu-item.model';
+import { MenuItem, MenuComponent } from '@fullswing-angular-library';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MenuComponent } from './shared/components/menu/menu.component';
 import { AuthenticationService } from './core/auth/auth.interface';
 import { NgxUiLoaderModule } from 'ngx-ui-loader';
+import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
-    imports: [RouterOutlet, MatIconModule, MatToolbarModule, MatButtonModule, MenuComponent, NgxUiLoaderModule]
+    imports: [RouterOutlet, MatIconModule, MatToolbarModule, MatButtonModule, MenuComponent, NgxUiLoaderModule, MatMenuModule, MatMenuTrigger]
 })
 export class AppComponent {
   menuItemList: Array<MenuItem> = [
