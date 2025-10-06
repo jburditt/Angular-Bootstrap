@@ -15,6 +15,8 @@ The library must be located at `../fullswing-angular` folder or you must update 
   "fullswing-angular-library": "file:../../fullswing-angular/dist/fullswing-angular-library",
 ```
 
+NOTE if you make any library changes, you will need to build the library and then run `npm i` on any projects that import the library
+
 ## Development server
 
 Run `ng s` for a dev server. Navigate to `https://localhost:4200/`. The application will automatically reload if you change any of the source files.
