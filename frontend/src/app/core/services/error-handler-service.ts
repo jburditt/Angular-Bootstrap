@@ -1,6 +1,6 @@
 import { ErrorHandler, Injectable } from '@angular/core';
-import { LoggingService } from './logging/logging-service.interface';
-import { LoggingFactory } from './logging/logging.factory';
+import { LoggingService, LoggingFactory } from '@fullswing-angular-library';
+
 
 @Injectable()
 export class ErrorHandlerService extends ErrorHandler {

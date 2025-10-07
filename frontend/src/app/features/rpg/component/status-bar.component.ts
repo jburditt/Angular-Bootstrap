@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Player } from '@features/rpg/model/player';
-import { LoggingService } from '@app/core/services/logging/logging-service.interface';
-import { LoggingFactory } from '@app/core/services/logging/logging.factory';
+import { LoggingService, LoggingFactory } from '@fullswing-angular-library';
 
 @Component({
     templateUrl: 'status-bar.component.html',
