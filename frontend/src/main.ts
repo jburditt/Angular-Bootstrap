@@ -24,31 +24,13 @@ import { hydrationMetaReducer } from '@app/features/rpg/store/hydration.reducer'
 
 // uncomment for site-wide authentication required
 export function initializeApp(
-    configService: ConfigService, http: HttpClient, authService: AuthenticationService,
-    authenticationApi: ApiAuthenticationService, oauthService: OAuthService) {
-    authService.isLoggedIn$.subscribe((isLoggedIn) => {
-    if (!isLoggedIn)
-      return;
-     console.log("User is logged in", authService.azureUserInfo);
-    let azureUserInfo: any = authService.azureUserInfo;
-    authenticationApi.whoAmI(azureUserInfo).subscribe({
-      next: (_res: any) => {
-        console.log('whoAmI response', _res);
-        // Retrieve the state information from the service.  This will contain the original URL
-        // the user requested.  Redirect the user to that URL.
-        // The state value is URL encoded by the OAuthService when it is sent to the identity
-        // provided and therefore needs to be decoded before conversion from base64.
-        let redirectState = JSON.parse(
-          oauthService.state ? atob(decodeURIComponent(oauthService.state)) : '{}'
-        );
-        if (redirectState.originalURL && redirectState.originalURL != window.location.href)
-          window.location.href = redirectState.originalURL;
-      },
-      error: (err: any) => {
-        console.error('OAuth Error', err);
-        authService.isLoggedIn$.next(false);
-      },
-    });
+  configService: ConfigService, http: HttpClient, authService: AuthenticationService,
+  authenticationApi: ApiAuthenticationService, oauthService: OAuthService)
+{
+  authService.isLoggedIn$.subscribe((isLoggedIn) => {
+    if (isLoggedIn) {
+      authenticationApi.redirectAfterLogin(authService.azureUserInfo);
+    }
   });
 
   return (): Observable<boolean> => {
