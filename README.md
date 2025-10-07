@@ -36,6 +36,8 @@ A project to demonstrate Angular features to be used for reference and bootstrap
   - Auth guard blocks host url change needed for the login redirect to `/admin`
   - The `/admin` after login link does not do anything the first time, auth guard is likely not piping observable correctly for this edge case
   - On logging out, it doesn't always redirect you back to website
+- Use `implements OnInit` for all components that use `ngOnInit`
+
 
 SiteMap
   Home
