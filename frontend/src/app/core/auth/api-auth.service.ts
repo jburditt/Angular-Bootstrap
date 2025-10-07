@@ -7,7 +7,7 @@ import { User } from '@app/api/models';
 import { StrictHttpResponse } from '@app/api/strict-http-response';
 import { OAuthService } from 'angular-oauth2-oidc';
 
-@Injectable()
+@Injectable({ providedIn: 'root' })
 export class ApiAuthenticationService
 {
   public isLoggedIn$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
@@ -24,6 +24,7 @@ export class ApiAuthenticationService
 
   redirectAfterLogin(azureUserInfo: any): void {
     console.log("User is logged in", azureUserInfo);
+    // TODO do we need whoAmI? we have the user info already in oauthService.azureUserInfo
     this.whoAmI(azureUserInfo).subscribe({
       next: (_res: any) => {
         console.log('whoAmI response', _res);

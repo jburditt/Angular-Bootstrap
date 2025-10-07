@@ -7,7 +7,7 @@ import { routes } from '@app/app.routes';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
 import { provideConfigService, ConfigService, provideLoggingService, provideErrorHandler, provideToastService, provideHttpInterceptor, provideOAuthService, AuthenticationService, TokenInterceptor } from "@fullswing-angular-library";
-import { ApiAuthenticationService } from '@app/core/auth/auth.service';
+import { ApiAuthenticationService } from '@app/core/auth/api-auth.service';
 import { OAuthService } from 'angular-oauth2-oidc';
 
 import { NgxUiLoaderModule, NgxUiLoaderConfig, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
@@ -27,11 +27,11 @@ export function initializeApp(
   configService: ConfigService, http: HttpClient, authService: AuthenticationService,
   authenticationApi: ApiAuthenticationService, oauthService: OAuthService)
 {
-  authService.isLoggedIn$.subscribe((isLoggedIn) => {
-    if (isLoggedIn) {
-      authenticationApi.redirectAfterLogin(authService.azureUserInfo);
-    }
-  });
+  // authService.isLoggedIn$.subscribe((isLoggedIn) => {
+  //   if (isLoggedIn) {
+  //     authenticationApi.redirectAfterLogin(authService.azureUserInfo);
+  //   }
+  // });
 
   return (): Observable<boolean> => {
     return configService.loadConfig$()
@@ -42,12 +42,12 @@ export function initializeApp(
 bootstrapApplication(AppComponent, {
   providers: [
     // uncomment for site-wide authentication required
-    {
-        provide: APP_INITIALIZER,
-        useFactory: initializeApp,
-        deps: [ConfigService, HttpClient, AuthenticationService, ApiAuthenticationService, OAuthService],
-        multi: true,
-    },
+    // {
+    //     provide: APP_INITIALIZER,
+    //     useFactory: initializeApp,
+    //     deps: [ConfigService, HttpClient, AuthenticationService, ApiAuthenticationService, OAuthService],
+    //     multi: true,
+    // },
     ApiAuthenticationService,
     provideOAuthService(),
     provideAnimations(),
