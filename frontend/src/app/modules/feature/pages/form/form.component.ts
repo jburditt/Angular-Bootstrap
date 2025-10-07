@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { AddressComponent, DatePickerComponent } from '@fullswing-angular-library';
+import { AddressComponent, DatePickerComponent, ValidationMessageComponent } from '@fullswing-angular-library';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ValidationMessageComponent } from '@app/features/rpg/component/validation-message.component';
 
 @Component({
     templateUrl: 'form.component.html',

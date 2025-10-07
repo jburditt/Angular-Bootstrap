@@ -14,10 +14,8 @@ export const AuthGuard = (): Observable<boolean> => {
       console.log("AuthGuard isLoggedIn", isLoggedIn);
       if (!isLoggedIn) {
         // TODO check config is not already loaded
-        // TODO this doesn't actually work. The commented out authentication code on main.ts does
         return firstValueFrom(configService.loadConfig$()).then(() => {
         //return configService.loadConfig$().pipe(tap((isLoaded) => {
-          //console.log("Config loaded", isLoaded);
           return authService.init();
         });
         router.navigate(['/admin/denied']);
