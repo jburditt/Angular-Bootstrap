@@ -1,6 +1,6 @@
 import { Route } from "@angular/router";
-import { FormPageComponent } from "@app/modules/feature/pages/form.component";
-import { NgRxStoreComponent } from "@app/modules/feature/pages/ngrx-store.component";
+import { FormPageComponent } from "@app/modules/feature/pages/form/form.component";
+import { NgRxStoreComponent } from "@app/modules/feature/pages/ngrx-store/ngrx-store.component";
 
 export class FeatureRoutes {
   public static HOME = '';

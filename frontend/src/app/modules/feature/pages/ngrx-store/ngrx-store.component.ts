@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 // TODO
 import { damage, heal } from '@features/rpg/store/player.actions';
 import { Player } from '@features/rpg/model/player';
-import { StatusBarComponent } from '@app/features/rpg/component/status-bar.component';
+import { StatusBarComponent } from '@app/modules/feature/pages/ngrx-store/status-bar.component';
 import { MatButton } from "@angular/material/button";
 import { NgxUiLoaderService } from "ngx-ui-loader"; // Import NgxUiLoaderService
 
