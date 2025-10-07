@@ -1,6 +1,6 @@
 import { inject } from '@angular/core';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '@app/core/auth/auth.interface';
+import { AuthenticationService } from "@fullswing-angular-library";
 import { Observable, map, of, tap } from 'rxjs';
 import { ConfigService } from '@fullswing-angular-library';
 

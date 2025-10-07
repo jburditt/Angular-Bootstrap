@@ -6,10 +6,8 @@ import { provideRouter } from '@angular/router';
 import { routes } from '@app/app.routes';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { provideConfigService, ConfigService, provideLoggingService, provideErrorHandler, provideToastService, provideHttpInterceptor } from "@fullswing-angular-library";
-import { AuthenticationService } from '@app/core/auth/auth.interface';
+import { provideConfigService, ConfigService, provideLoggingService, provideErrorHandler, provideToastService, provideHttpInterceptor, provideOAuthService, AuthenticationService } from "@fullswing-angular-library";
 import { ApiAuthenticationService } from '@app/core/auth/auth.service';
-import { provideOAuthService } from "@app/core/auth/auth.provider";
 import { OAuthService } from 'angular-oauth2-oidc';
 
 import { NgxUiLoaderModule, NgxUiLoaderConfig, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
