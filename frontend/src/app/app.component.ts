@@ -32,12 +32,12 @@ export class AppComponent {
     });
   }
 
-  login() {
+  protected login() {
     // TODO config service first
     //this.authService.init();
   }
 
-  logout() {
+  protected logout() {
     this.authService.logout();
   }
 }

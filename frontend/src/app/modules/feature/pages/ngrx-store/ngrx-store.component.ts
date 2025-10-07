@@ -23,12 +23,12 @@ export class NgRxStoreComponent {
     });
   }
 
-  damage() {
+  protected damage() {
     this.ngxService.startBackground("ngrx-store");
     this.store.dispatch(damage({ damageHp: 1 }));
   }
 
-  heal() {
+  protected heal() {
     this.ngxService.startBackground("ngrx-store");
     this.store.dispatch(heal());
   }

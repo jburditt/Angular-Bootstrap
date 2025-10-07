@@ -21,7 +21,7 @@ export class StatusBarComponent {
     });
   }
 
-  ngOnInit() {
-    this._loggingService.debug('AppComponent initialized');
+  protected ngOnInit() {
+    this._loggingService.debug('StatusBarComponent initialized');
   }
 }
