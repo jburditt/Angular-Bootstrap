@@ -6,7 +6,7 @@ import { provideRouter } from '@angular/router';
 import { routes } from '@app/app.routes';
 import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Observable, tap } from 'rxjs';
-import { provideConfigService, ConfigService, provideLoggingService, provideErrorHandler, provideToastService, provideHttpInterceptor, provideOAuthService, AuthenticationService } from "@fullswing-angular-library";
+import { provideConfigService, ConfigService, provideLoggingService, provideErrorHandler, provideToastService, provideHttpInterceptor, provideOAuthService, AuthenticationService, TokenInterceptor } from "@fullswing-angular-library";
 import { ApiAuthenticationService } from '@app/core/auth/auth.service';
 import { OAuthService } from 'angular-oauth2-oidc';
 
