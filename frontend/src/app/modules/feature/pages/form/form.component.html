@@ -6,17 +6,11 @@
   <legend>Reactive Form</legend>
   <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
 
-    <mat-form-field>
-      <mat-label>First Name</mat-label>
-      <input matInput placeholder="First Name" formControlName="firstName" required>
-      <mat-error>
-        <validation-message [control]="$any(searchForm.get('firstName'))"></validation-message>
-      </mat-error>
-    </mat-form-field>
+    <fs-textbox label="First Name" controlName="firstName" [parentForm]="searchForm"></fs-textbox>
 
-    <date-picker [datePickerFormControl]="$any(searchForm.get('date'))"></date-picker>
+    <fs-datepicker [datePickerFormControl]="$any(searchForm.get('date'))"></fs-datepicker>
 
-    <address [addressForm]="$any(searchForm.get('addressForm'))"></address>
+    <fs-address [addressForm]="$any(searchForm.get('addressForm'))"></fs-address>
 
     <button type="submit" matButton="filled" color="primary">
       Submit

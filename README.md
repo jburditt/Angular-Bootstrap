@@ -1,5 +1,5 @@
 # Bootstrap Project
-A project to demonstrate Angular features to be used for reference and bootstrapping new projects. WIP: The following are all automated, once you add models (simple POCOs):
+A project to demonstrate Angular features to be used for reference and bootstrapping new Angular/.NET projects. WIP: The following are all automated, once you add models (simple POCOs):
 - Create form from model
 - Save form to database
 - Create database from models
@@ -22,20 +22,20 @@ A project to demonstrate Angular features to be used for reference and bootstrap
 - OpenAPI generate -> Generate Angular API services from OpenAPI spec
 
 # TODO
-- Move validation-message component from features/rpg to shared/component
-- Copy theming from frontend to bootstrap
-- Copy frontend menu changes to bootstrap
 - Add centralized logging
 - Add more Angular features
 - Upload to jburditt.com or fullsweb.com
 - Implement CI/CD
 - Add NgRx hydration for persistence
 - Fix VS SPA error in console logs
-- Fix or reinstall Storybook
+- Fix or uninstall Storybook
 - Integrate Matero component
 - Edit user instead of adding new user
-- Auth -> On clicking on Admin menu item, you will be redirected to Denied page. On second attempt, it will work
-- Auth -> On logging out, it doesn't redirect you back to website
+- Toast example page
+- Authentication
+  - Auth guard blocks host url change needed for the login redirect to `/admin`
+  - The `/admin` after login link does not do anything the first time, auth guard is likely not piping observable correctly for this edge case
+  - On logging out, it doesn't always redirect you back to website
 
 SiteMap
   Home

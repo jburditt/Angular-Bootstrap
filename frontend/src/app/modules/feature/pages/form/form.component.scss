@@ -3,11 +3,6 @@ fieldset {
   padding: 24px;
 }
 
-mat-form-field {
-  margin-bottom: 16px;
-  margin-right: 16px;
-}
-
-date-picker {
-  margin-right: 16px;
+mat-form-field, fs-textbox, fs-datepicker {
+  margin: 0 16px 16px 0;
 }

@@ -15,12 +15,6 @@ The library must be located at `../fullswing-angular` folder or you must update 
   "fullswing-angular-library": "file:../../fullswing-angular/dist/fullswing-angular-library",
 ```
 
-## To-Do List
-- Toast example page
-- Authentication
-  - Auth guard blocks host url change needed for the login redirect to `/admin`
-  - The `/admin` after login link does not do anything the first time, auth guard is likely not piping observable correctly for this edge case
-
 ## Development server
 
 Run `ng s` for a dev server. Navigate to `https://localhost:4200/`. The application will automatically reload if you change any of the source files.
