@@ -2,8 +2,8 @@
 
 <p>This page demonstrates feature flags.</p>
 
-@for (flag of featureFlags; track flag.name) {
-  <p>The {{ flag.name }} feature is {{ flag.enabled ? 'enabled' : 'disabled' }}!</p>
+@for (flag of featureFlags | keyvalue; track flag.key) {
+  <p>The {{ flag.key }} feature is {{ flag.value ? 'enabled' : 'disabled' }}!</p>
 }
 
 <ng-container [featureEnabled]="'newFeatureX'">

@@ -1,21 +1,15 @@
 import { Component } from '@angular/core';
 import { ConfigService } from '@fullswing-angular-library';
 import { FeatureEnabledDirective } from '@fullswing-angular-library';
+import { KeyValuePipe } from '@angular/common';
 
 @Component({
-  imports: [FeatureEnabledDirective],
+  imports: [FeatureEnabledDirective, KeyValuePipe],
   templateUrl: './flags.component.html',
   styleUrl: './flags.component.css'
 })
 export class FlagsPageComponent {
-  featureFlags: Array<{ name: string, enabled: boolean }>;
+  featureFlags = this.configService.config.featureFlags;
 
-  constructor(private configService: ConfigService)
-  {
-    this.featureFlags = Object
-      .entries(this.configService.config.featureFlags)
-      .map(([name, enabled]) => ({ name, enabled }));
-
-    console.log('Feature Flags:', this.featureFlags);
-  }
+  constructor(private configService: ConfigService) { }
 }
