@@ -34,20 +34,20 @@ export function initializeApp(
   // });
 
   return (): Observable<boolean> => {
-    return configService.loadConfig$()
-      .pipe(tap(() => authService.init()));
+    return configService.loadConfig$();
+      //.pipe(tap(() => authService.init()));
   }
 }
 
 bootstrapApplication(AppComponent, {
   providers: [
     // uncomment for site-wide authentication required
-    // {
-    //     provide: APP_INITIALIZER,
-    //     useFactory: initializeApp,
-    //     deps: [ConfigService, HttpClient, AuthenticationService, ApiAuthenticationService, OAuthService],
-    //     multi: true,
-    // },
+    {
+        provide: APP_INITIALIZER,
+        useFactory: initializeApp,
+        deps: [ConfigService, HttpClient, AuthenticationService, ApiAuthenticationService, OAuthService],
+        multi: true,
+    },
     ApiAuthenticationService,
     provideOAuthService(),
     provideAnimations(),

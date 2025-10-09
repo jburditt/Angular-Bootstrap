@@ -9,5 +9,9 @@
     "scope": "openid profile email offline_access",
     "showDebugInformation": true,
     "requireHttps": false
+  },
+  "featureFlags": {
+    "newFeatureX": true,
+    "betaFeatureY": false
   }
 }

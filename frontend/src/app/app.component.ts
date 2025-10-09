@@ -19,6 +19,7 @@ export class AppComponent {
       new MenuItem('Search', '/user/search', 'search')
     ]),
     new MenuItem('Form', '/feature', 'build', [
+      new MenuItem('Flags', '/feature/flags', 'description'),
       new MenuItem('NgRx Store', '/feature/ngrx-store', 'dashboard')
     ]),
     new MenuItem('Admin', '/admin', 'settings'),

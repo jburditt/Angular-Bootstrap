@@ -1,0 +1,15 @@
+<h1>Feature Flags</h1>
+
+<p>This page demonstrates feature flags.</p>
+
+@for (flag of featureFlags; track flag.name) {
+  <p>The {{ flag.name }} feature is {{ flag.enabled ? 'enabled' : 'disabled' }}!</p>
+}
+
+<div [featureEnabled]="'newFeatureX'">
+  <p>This content is only visible if the newFeatureX flag is enabled.</p>
+</div>
+
+<span [featureEnabled]="'betaFeatureY'">
+  <p>This content is only visible if the betaFeatureY flag is enabled.</p>
+</span>
