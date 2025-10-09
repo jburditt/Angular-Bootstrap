@@ -6,10 +6,10 @@
   <p>The {{ flag.name }} feature is {{ flag.enabled ? 'enabled' : 'disabled' }}!</p>
 }
 
-<div [featureEnabled]="'newFeatureX'">
+<ng-container [featureEnabled]="'newFeatureX'">
   <p>This content is only visible if the newFeatureX flag is enabled.</p>
-</div>
+</ng-container>
 
-<span [featureEnabled]="'betaFeatureY'">
+<div [featureEnabled]="'betaFeatureY'">
   <p>This content is only visible if the betaFeatureY flag is enabled.</p>
-</span>
+</div>
