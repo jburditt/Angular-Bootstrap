@@ -2,7 +2,7 @@ import { AppComponent } from '@app/app.component';
 import { importProvidersFrom, inject, provideAppInitializer } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
-import { provideRouter } from '@angular/router';
+import { provideRouter, withComponentInputBinding } from '@angular/router';
 import { routes } from '@app/app.routes';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { firstValueFrom } from 'rxjs';
@@ -44,7 +44,7 @@ bootstrapApplication(AppComponent, {
     ApiAuthenticationService,
     provideOAuthService(),
     provideAnimations(),
-    provideRouter(routes),
+    provideRouter(routes, withComponentInputBinding()),
     provideErrorHandler(),
     provideHttpInterceptor(),
     provideHttpClient(withInterceptorsFromDi()),

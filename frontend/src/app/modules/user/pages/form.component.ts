@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, input, OnInit } from '@angular/core';
 import { EntityService, UserService } from '@app/api/services';
 import { Model } from "survey-core";
 import { SurveyModule } from 'survey-angular-ui';
@@ -11,12 +11,11 @@ import { PlainLight } from 'survey-core/themes';
 })
 export class FormPageComponent implements OnInit {
   surveyModel!: Model;
+  id = input<string>();
 
   constructor(private entityService: EntityService, private userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-
     this.entityService.apiEntityGetentityGet({ entityName: "User" }).subscribe((entities) => {
       console.log(entities);
     });
@@ -46,8 +45,8 @@ export class FormPageComponent implements OnInit {
     survey.applyTheme(PlainLight);
     survey.completeText = "Add User";
     survey.completedHtml = "User added successfully!";
-    if (id) {
-      this.userService.apiUserIdGet({ id: id }).subscribe((user) => {
+    if (this.id()) {
+      this.userService.apiUserIdGet({ id: this.id()! }).subscribe((user) => {
         console.log(user);
         survey.data = user;
       });
