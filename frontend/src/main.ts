@@ -4,11 +4,10 @@ import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter } from '@angular/router';
 import { routes } from '@app/app.routes';
-import { HttpClient, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { Observable, firstValueFrom } from 'rxjs';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { firstValueFrom } from 'rxjs';
 import { provideConfigService, ConfigService, provideLoggingService, provideErrorHandler, provideToastService, provideHttpInterceptor, provideOAuthService, AuthenticationService, TokenInterceptor } from "@fullswing-angular-library";
 import { ApiAuthenticationService } from '@app/core/auth/api-auth.service';
-import { OAuthService } from 'angular-oauth2-oidc';
 
 import { NgxUiLoaderModule, NgxUiLoaderConfig, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
@@ -18,15 +17,17 @@ const ngxUiLoaderConfig: NgxUiLoaderConfig = {
 };
 
 // ngrx/store
-import { provideStore, provideState, StoreModule } from '@ngrx/store';
-import { playerReducer } from "@features/rpg/store/player.reducer";
-import { hydrationMetaReducer } from '@app/features/rpg/store/hydration.reducer';
+//import { provideStore, provideState, StoreModule } from '@ngrx/store';
+//import { playerReducer } from "@features/rpg/store/player.reducer";
+//import { hydrationMetaReducer } from '@app/features/rpg/store/hydration.reducer';
 
-// uncomment for site-wide authentication required
 export async function initializeApp(): Promise<boolean>
 {
   const configService = inject(ConfigService);
-  const authService = inject(AuthenticationService);
+  // uncomment for site-wide authentication required
+  // const authService = inject(AuthenticationService);
+  // const authenticationApi = inject(ApiAuthenticationService);
+
   // authService.isLoggedIn$.subscribe((isLoggedIn) => {
   //   if (isLoggedIn) {
   //     authenticationApi.redirectAfterLogin(authService.azureUserInfo);
@@ -34,7 +35,7 @@ export async function initializeApp(): Promise<boolean>
   // });
 
   return await firstValueFrom(configService.loadConfig$())
-    .then(() => authService.init());
+  //  .then(() => authService.init());
 }
 
 bootstrapApplication(AppComponent, {
@@ -56,8 +57,8 @@ bootstrapApplication(AppComponent, {
       NgxUiLoaderRouterModule.forRoot({ showForeground: false })
     ),
     // ngrx/store
-    provideStore({ player: playerReducer }),
-    provideState({ name: 'player', reducer: playerReducer }),
+    //provideStore({ player: playerReducer }),
+    //provideState({ name: 'player', reducer: playerReducer }),
 ]
 })
   .catch(err => console.error(err));

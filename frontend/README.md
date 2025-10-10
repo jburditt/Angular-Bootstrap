@@ -1,6 +1,8 @@
-# GamifyworkoutClient
+# Angular Bootstrap Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
+This project is a demo of Angular features. The project will eventually be decomposed into two projects:
+- Bootstrap barebones project
+- Demo project with examples
 
 ## Libary Dependency
 

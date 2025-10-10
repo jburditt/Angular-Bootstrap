@@ -6,6 +6,7 @@ import { AddressComponent, DatePickerComponent, ValidationMessageComponent, Text
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldControl, MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
     templateUrl: 'form.component.html',
@@ -17,6 +18,8 @@ import { MatInputModule } from '@angular/material/input';
     styleUrls: ['form.component.scss'],
 })
 export class FormPageComponent {
+  isDirty = false;
+
   searchForm = new FormGroup({
     date: new FormControl('', [Validators.required]),
     firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -31,7 +34,11 @@ export class FormPageComponent {
     })
   });
 
-  constructor() { }
+  constructor() {
+    firstValueFrom(this.searchForm.valueChanges).then(() => {
+      this.isDirty = true;
+    });
+  }
 
   protected onSubmit() {
     this.searchForm.get('addressForm')?.markAllAsTouched();

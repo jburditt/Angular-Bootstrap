@@ -12,12 +12,9 @@ const enum FeatureRoutes {
 
 export default [
   {
-    path: FeatureRoutes.HOME,
-    component: FormPageComponent,
-  },
-  {
     path: FeatureRoutes.FORM,
     component: FormPageComponent,
+    canDeactivate: [(component: FormPageComponent) => component.isDirty ? confirm("You have unsaved changes. Do you really want to leave?") : true]
   },
   {
     path: FeatureRoutes.FLAGS,
