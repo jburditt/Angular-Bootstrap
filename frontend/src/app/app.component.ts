@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { MenuItem, MenuComponent, AuthenticationService } from '@fullswing-angular-library';
 import { MatIconModule } from '@angular/material/icon';
@@ -12,7 +12,7 @@ import { MatMenuModule, MatMenuTrigger } from '@angular/material/menu';
     templateUrl: './app.component.html',
     imports: [RouterOutlet, MatIconModule, MatToolbarModule, MatButtonModule, MenuComponent, NgxUiLoaderModule, MatMenuModule, MatMenuTrigger]
 })
-export class AppComponent {
+export class AppComponent implements OnDestroy {
   menuItemList: Array<MenuItem> = [
     new MenuItem('Home', '/', 'home'),
     new MenuItem('User', '/user', 'contact_mail', [
@@ -40,5 +40,9 @@ export class AppComponent {
 
   protected logout() {
     this.authService.logout();
+  }
+
+  ngOnDestroy(): void {
+    this.authService.isLoggedIn$.unsubscribe();
   }
 }

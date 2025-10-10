@@ -1,22 +1,27 @@
-import { Component, input, OnInit } from '@angular/core';
+import { Component, Injectable, input, OnDestroy, OnInit } from '@angular/core';
 import { EntityService, UserService } from '@app/api/services';
 import { Model } from "survey-core";
 import { SurveyModule } from 'survey-angular-ui';
 import { ActivatedRoute } from '@angular/router';
 import { PlainLight } from 'survey-core/themes';
+import { UnsubscribeOnDestroy } from 'fullswing-angular-library';
 
 @Component({
     templateUrl: 'form.component.html',
     imports: [SurveyModule]
 })
-export class FormPageComponent implements OnInit {
+export class FormPageComponent extends UnsubscribeOnDestroy implements OnInit, OnDestroy
+{
   surveyModel!: Model;
   id = input<string>();
 
-  constructor(private entityService: EntityService, private userService: UserService, private route: ActivatedRoute) { }
+  constructor(private entityService: EntityService, private userService: UserService, private route: ActivatedRoute)
+  {
+    super();
+  }
 
   ngOnInit(): void {
-    this.entityService.apiEntityGetentityGet({ entityName: "User" }).subscribe((entities) => {
+    this.safe(this.entityService.apiEntityGetentityGet({ entityName: "User" })).subscribe((entities) => {
       console.log(entities);
     });
 
@@ -46,7 +51,7 @@ export class FormPageComponent implements OnInit {
     survey.completeText = "Add User";
     survey.completedHtml = "User added successfully!";
     if (this.id()) {
-      this.userService.apiUserIdGet({ id: this.id()! }).subscribe((user) => {
+      this.safe(this.userService.apiUserIdGet({ id: this.id()! })).subscribe((user) => {
         console.log(user);
         survey.data = user;
       });
@@ -54,7 +59,7 @@ export class FormPageComponent implements OnInit {
     // TODO handle edit instead of always adding new user
     survey.onComplete.add((sender, options) => {
       console.log("Survey results: " + survey.data);
-      this.userService.apiUserPost({ body: survey.data }).subscribe((user) => {
+      this.safe(this.userService.apiUserPost({ body: survey.data })).subscribe((user) => {
         console.log("User created", user);
       });
     });
