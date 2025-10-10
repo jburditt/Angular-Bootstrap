@@ -2,9 +2,9 @@ import { Route } from "@angular/router";
 import { AuthGuard } from "@app/core/auth/auth.guard";
 import { DashboardPageComponent } from "@app/modules/admin/pages/dashboard.component";
 
-export class AdminRoutes {
-  public static HOME = '';
-  public static DENIED = 'denied';
+const enum AdminRoutes {
+  HOME = '',
+  DENIED = 'denied',
 }
 
 export default [

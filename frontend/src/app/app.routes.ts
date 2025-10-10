@@ -1,23 +1,30 @@
 import { Routes } from '@angular/router';
 
+const enum AppRoutes {
+  HOME = '',
+  ADMIN = 'admin',
+  USER = 'user',
+  FEATURE = 'feature',
+}
+
 export const routes: Routes = [{
   path: '',
   children: [
     {
-      path: '',
+      path: AppRoutes.HOME,
       loadComponent: () => import('@app/modules/home.component').then(m => m.HomePageComponent)
     },
     {
-      path: 'admin',
+      path: AppRoutes.ADMIN,
       //canActivate: [authGuard],
       loadChildren: () => import('@app/modules/admin/admin.routes')
     },
     {
-      path: 'user',
+      path: AppRoutes.USER,
       loadChildren: () => import('@app/modules/user/user.routes')
     },
     {
-      path: 'feature',
+      path: AppRoutes.FEATURE,
       loadChildren: () => import('@app/modules/feature/feature.routes')
     }
   ],

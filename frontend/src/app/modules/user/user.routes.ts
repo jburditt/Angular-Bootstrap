@@ -2,10 +2,10 @@ import { Route } from "@angular/router";
 import { FormPageComponent } from "@app/modules/user/pages/form.component";
 import { SearchPageComponent } from "./pages/search.component";
 
-export class UserRoutes {
-  public static HOME = '';
-  public static SEARCH = 'search';
-  public static EDIT = ':id';
+const enum UserRoutes {
+  HOME = '',
+  SEARCH = 'search',
+  EDIT = ':id',
 }
 
 export default [
