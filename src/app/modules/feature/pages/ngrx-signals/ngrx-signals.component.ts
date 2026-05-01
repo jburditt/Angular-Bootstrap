@@ -11,11 +11,10 @@ import { PlayerStore } from './player-store';
   standalone: true,
   templateUrl: 'ngrx-signals.component.html',
   imports: [CommonModule, StatusBarComponent, MatButton],
-  providers: [PlayerStore],
   styleUrls: ['ngrx-signals.component.scss']
 })
 export class NgRxSignalComponent implements OnDestroy {
-  player!: Player;
+  //player!: Player;
   readonly playerStore = inject(PlayerStore);
 
   constructor() {

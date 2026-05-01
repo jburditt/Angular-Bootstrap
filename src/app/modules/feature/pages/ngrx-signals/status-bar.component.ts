@@ -1,17 +1,17 @@
-import { Component, inject } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 //import { Store } from '@ngrx/store';
 import { Player } from '@features/rpg/model/player';
 import { PlayerStore } from './player-store';
+import { JsonPipe } from '@angular/common';
 //import { LoggingService, LoggingFactory } from 'fullswing-angular-library';
 
 @Component({
   templateUrl: 'status-bar.component.html',
-  imports: [],
-  providers: [PlayerStore],
-  selector: 'status-bar'
+  selector: 'status-bar',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatusBarComponent {
-  public player!: Player;
+  //public player!: Player;
   readonly playerStore = inject(PlayerStore);
 
   //private readonly _loggingService: LoggingService;
