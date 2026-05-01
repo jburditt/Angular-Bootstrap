@@ -20,7 +20,8 @@ export class AppComponent implements OnDestroy {
     ]),
     new MenuItem('Form', '/feature/form', 'build', [
       new MenuItem('Flags', '/feature/flags', 'description'),
-      new MenuItem('NgRx Store', '/feature/ngrx-store', 'dashboard')
+      new MenuItem('NgRx Store', '/feature/ngrx-store', 'dashboard'),
+      new MenuItem('NgRx Signals', '/feature/ngrx-signals', 'signal_cellular_alt')
     ]),
     new MenuItem('Admin', '/admin', 'settings'),
   ];

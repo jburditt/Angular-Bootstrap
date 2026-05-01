@@ -26,8 +26,8 @@ export default [
     path: FeatureRoutes.NGRX_STORE,
     component: NgRxStoreComponent,
   },
-  // {
-  //   path: FeatureRoutes.NGRX_SIGNAL,
-  //   component: NgRxSignalComponent,
-  // }
+  {
+    path: FeatureRoutes.NGRX_SIGNAL,
+    component: NgRxSignalComponent,
+  }
 ] satisfies Route[];
