@@ -21,6 +21,17 @@ A project to demonstrate Angular features to be used for reference and bootstrap
 - SurveyJS -> Automate creating form from model, and loading form from database
 - OpenAPI generate -> Generate Angular API services from OpenAPI spec
 
+## Libary Dependency
+The repository must be cloned within the 'fullswing-angular-library' repository, in the folder 'projects/gamifyworkout.
+```bash
+git clone https://github.com/jburditt/fullswing-angular-library.git
+cd projects
+mkdir gamifyworkout
+cd gamifyworkout
+git clone https://github.com/jburditt/Angular-Bootstrap.git .
+```
+Now you can build, run, and test the frontend project from the root folder in fullswing-angular-library.
+
 # TODO
 - Add centralized logging
 - Add more Angular features
