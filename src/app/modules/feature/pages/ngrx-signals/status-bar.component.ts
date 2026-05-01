@@ -1,9 +1,6 @@
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-//import { Store } from '@ngrx/store';
-import { Player } from '@features/rpg/model/player';
 import { PlayerStore } from './player-store';
-import { JsonPipe } from '@angular/common';
-//import { LoggingService, LoggingFactory } from 'fullswing-angular-library';
+import { LoggingService, LoggingFactory } from 'fullswing-angular-library';
 
 @Component({
   templateUrl: 'status-bar.component.html',
@@ -11,21 +8,16 @@ import { JsonPipe } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StatusBarComponent {
-  //public player!: Player;
   readonly playerStore = inject(PlayerStore);
 
-  //private readonly _loggingService: LoggingService;
+  private readonly _loggingService: LoggingService;
 
-  // constructor(private store: Store<{ player: Player }>, private loggingFactory: LoggingFactory)
-  // {
-  //   this._loggingService = this.loggingFactory.create(this.constructor.name);
-  //   store.select('player').subscribe((player) => {
-  //     console.log('player', player);
-  //     this.player = player;
-  //   });
-  // }
+  constructor(private loggingFactory: LoggingFactory)
+  {
+    this._loggingService = this.loggingFactory.create(this.constructor.name);
+  }
 
   protected ngOnInit() {
-    //this._loggingService.debug('StatusBarComponent initialized');
+    this._loggingService.debug('StatusBarComponent initialized');
   }
 }
