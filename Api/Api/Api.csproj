@@ -4,8 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <SpaRoot>..\gamifyworkout.client</SpaRoot>
-    <SpaProxyLaunchCommand>npm run start</SpaProxyLaunchCommand>
+    <SpaRoot>..\..\..\..</SpaRoot>
+    <SpaProxyLaunchCommand>npm run start angular-bootstrap</SpaProxyLaunchCommand>
     <SpaProxyServerUrl>https://localhost:4200</SpaProxyServerUrl>
   </PropertyGroup>
 
