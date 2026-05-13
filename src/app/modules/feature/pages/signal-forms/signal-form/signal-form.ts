@@ -4,6 +4,7 @@ import { MatInputModule } from '@angular/material/input';
 import { form, FormField, pattern, required } from '@angular/forms/signals';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatSelectModule } from '@angular/material/select';
+import { MatButton } from '@angular/material/button';
 
 interface FormData {
   date: string;
@@ -24,7 +25,7 @@ interface Province {
 
 @Component({
   selector: 'app-signal-form',
-  imports: [MatInputModule, MatFormFieldModule, FormField, MatDatepickerModule, MatSelectModule],
+  imports: [MatButton, MatInputModule, MatFormFieldModule, FormField, MatDatepickerModule, MatSelectModule],
   templateUrl: './signal-form.html',
   styleUrl: './signal-form.css',
   changeDetection: ChangeDetectionStrategy.OnPush,

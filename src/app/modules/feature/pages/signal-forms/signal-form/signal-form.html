@@ -22,6 +22,8 @@
       @if (searchForm.date().hasError('required')) { <mat-error>{{ title() }} is required</mat-error> } -->
     </mat-form-field>
 
+    <br>
+
     <mat-form-field>
       <mat-label>Address Line 1</mat-label>
       <input matInput [formField]="searchForm.addressForm.addressLine1">
