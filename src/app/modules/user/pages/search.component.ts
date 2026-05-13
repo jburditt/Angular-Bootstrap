@@ -16,11 +16,7 @@ import buildQuery from 'odata-query'
 @Component({
   standalone: true,
   templateUrl: 'search.component.html',
-  imports: [
-    FormsModule, ReactiveFormsModule,
-    MatPaginatorModule, MatIconModule, MatGridListModule, MatInputModule, MatDatepickerModule, MatTableModule,
-    MatNativeDateModule, MatButtonModule,
-  ]
+  imports: [FormsModule, ReactiveFormsModule, MatPaginatorModule, MatIconModule, MatGridListModule, MatInputModule, MatDatepickerModule, MatTableModule, MatNativeDateModule, MatButtonModule]
 })
 export class SearchPageComponent implements AfterViewInit {
   searchForm = new FormGroup({

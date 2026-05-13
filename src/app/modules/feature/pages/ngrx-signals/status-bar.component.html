@@ -1,7 +1,14 @@
-  <span style="margin-left: 100px">
-    <span style="margin-right: 30px">HP {{ playerStore.player().hp }} / {{ playerStore.player().maxHp }}</span>
-    <span style="margin-right: 30px">MP {{ playerStore.player().mp }} / {{ playerStore.player().maxMp }}</span>
-    <span style="margin-right: 30px">EXP {{ playerStore.player().experience }} / {{ playerStore.player().maxExperience }}</span>
-    <span>LVL {{ playerStore.player().level }}</span>
+<style>
+  span {
+    margin-right: 30px;
+  }
+</style>
+
+<span>
+    <span>HP {{ playerStore.player().hp }} / {{ playerStore.player().maxHp }}</span>
+    <span>Alive: {{ playerStore.isAlive() }}</span>
+    <!--<span>MP {{ playerStore.player().mp }} / {{ playerStore.player().maxMp }}</span>
+    <span>EXP {{ playerStore.player().experience }} / {{ playerStore.player().maxExperience }}</span>
+    <span>LVL {{ playerStore.player().level }}</span>-->
   </span>
   <span class="spacer"></span>
