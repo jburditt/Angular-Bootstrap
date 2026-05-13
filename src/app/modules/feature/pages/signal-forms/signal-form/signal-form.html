@@ -1,6 +1,6 @@
 <h1>Signal Form</h1>
 
-<p>This page demonstrates datepicker, validation, and a nested address form.</p>
+<p>This page demonstrates signals form.</p>
 
 <fieldset>
   <legend>Reactive Form</legend>
@@ -22,7 +22,40 @@
       @if (searchForm.date().hasError('required')) { <mat-error>{{ title() }} is required</mat-error> } -->
     </mat-form-field>
 
-    <!-- <fs-address [addressForm]="$any(searchForm.get('addressForm'))"></fs-address> -->
+    <mat-form-field>
+      <mat-label>Address Line 1</mat-label>
+      <input matInput [formField]="searchForm.addressForm.addressLine1">
+      <!-- @if (searchForm.addressForm.addressLine1().invalid()) { <mat-error>Address Line 1 is required</mat-error> } -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Address Line 2</mat-label>
+      <input matInput [formField]="searchForm.addressForm.addressLine2">
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input matInput [formField]="searchForm.addressForm.city">
+      <!-- @if (searchForm.addressForm.city().invalid()) { <mat-error>City is required</mat-error> } -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Province/State</mat-label>
+      <mat-select [formField]="searchForm.addressForm.province">
+        @for (province of provinces; track province.code) {
+          <mat-option [value]="province.code">{{ province.name }}</mat-option>
+        }
+      </mat-select>
+      <!-- @if (searchForm.addressForm.province().invalid()) { <mat-error>Province/State is required</mat-error> } -->
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Postal/Zip Code</mat-label>
+      <input matInput [formField]="searchForm.addressForm.postalCode">
+      <!--@if (addressForm().get('postalCode')?.hasError('pattern')) { <mat-error>Must be in 12345 or 12345-6789 format</mat-error> }-->
+      <!-- @if (searchForm.addressForm.postalCode().hasError('pattern')) { <mat-error>Must be in A1B 2C3 or A1B2C3 format</mat-error> }
+      @if (searchForm.addressForm.postalCode().hasError('required')) { <mat-error>Postal/Zip Code is required</mat-error> } -->
+    </mat-form-field>
 
     <button type="submit" matButton="filled" color="primary">
       Submit
