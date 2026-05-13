@@ -8,8 +8,9 @@ import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http'
 import { firstValueFrom } from 'rxjs';
 import { provideConfigService, ConfigService, provideLoggingService, provideErrorHandler, provideToastService, provideHttpInterceptor, provideOAuthService, AuthenticationService, TokenInterceptor } from "fullswing-angular-library";
 import { ApiAuthenticationService } from '@app/core/auth/api-auth.service';
-
 import { NgxUiLoaderModule, NgxUiLoaderConfig, NgxUiLoaderRouterModule, NgxUiLoaderHttpModule } from 'ngx-ui-loader';
+import { provideNativeDateAdapter } from '@angular/material/core';
+
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   bgsColor: '#267591',
   bgsType: 'square-loader',
@@ -40,6 +41,7 @@ export async function initializeApp(): Promise<boolean>
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideNativeDateAdapter(),
     provideZoneChangeDetection(),
     provideAppInitializer(initializeApp),
     ApiAuthenticationService,

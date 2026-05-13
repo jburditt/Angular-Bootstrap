@@ -5,20 +5,24 @@
 <fieldset>
   <legend>Reactive Form</legend>
 
-  <form (ngSubmit)="onSubmit()">
+  <form (submit)="onSubmit($event)">
 
-    <!-- <fs-textbox label="First Name" controlName="firstName" [parentForm]="searchForm"></fs-textbox> -->
     <mat-form-field>
       <mat-label>First Name</mat-label>
       <input matInput [formField]="searchForm.firstName">
-      <mat-error>
-        <!-- <fs-validation-message [label]="label()" [control]="$any(parentForm().get(controlName()))"></fs-validation-message> -->
-      </mat-error>
     </mat-form-field>
 
-    <!-- <fs-datepicker [datePickerFormControl]="$any(searchForm.get('date'))"></fs-datepicker>
+    <mat-form-field>
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" [formField]="searchForm.date">
+      <mat-hint>MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+      <!-- @if (searchForm.date().hasError('matDatepickerParse')) { <mat-error>Must be in MM/DD/YYYY format</mat-error> }
+      @if (searchForm.date().hasError('required')) { <mat-error>{{ title() }} is required</mat-error> } -->
+    </mat-form-field>
 
-    <fs-address [addressForm]="$any(searchForm.get('addressForm'))"></fs-address> -->
+    <!-- <fs-address [addressForm]="$any(searchForm.get('addressForm'))"></fs-address> -->
 
     <button type="submit" matButton="filled" color="primary">
       Submit
