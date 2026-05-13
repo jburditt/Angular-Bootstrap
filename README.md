@@ -167,3 +167,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Troubleshooting
 If you encounter a self-signed certificate error, trust your local self-signed certificate or run `export NODE_TLS_REJECT_UNAUTHORIZED=0` to ignore the self-sign certificate error
+
+## Updating Angular version
+
+This bootstrap is intended on always being on the latest version, to be able to use the bootstrap on new projects. To update Angular, follow the steps outlined here: https://angular.dev/update-guide

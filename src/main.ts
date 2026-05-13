@@ -1,5 +1,5 @@
 import { AppComponent } from '@app/app.component';
-import { importProvidersFrom, inject, provideAppInitializer } from '@angular/core';
+import { importProvidersFrom, inject, provideAppInitializer, provideZoneChangeDetection } from '@angular/core';
 import { bootstrapApplication } from '@angular/platform-browser';
 import { provideAnimations } from '@angular/platform-browser/animations';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
@@ -40,6 +40,7 @@ export async function initializeApp(): Promise<boolean>
 
 bootstrapApplication(AppComponent, {
   providers: [
+    provideZoneChangeDetection(),
     provideAppInitializer(initializeApp),
     ApiAuthenticationService,
     provideOAuthService(),
