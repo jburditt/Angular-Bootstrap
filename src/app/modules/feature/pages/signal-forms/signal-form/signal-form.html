@@ -1,0 +1,28 @@
+<h1>Signal Form</h1>
+
+<p>This page demonstrates datepicker, validation, and a nested address form.</p>
+
+<fieldset>
+  <legend>Reactive Form</legend>
+
+  <form (ngSubmit)="onSubmit()">
+
+    <!-- <fs-textbox label="First Name" controlName="firstName" [parentForm]="searchForm"></fs-textbox> -->
+    <mat-form-field>
+      <mat-label>First Name</mat-label>
+      <input matInput [formField]="searchForm.firstName">
+      <mat-error>
+        <!-- <fs-validation-message [label]="label()" [control]="$any(parentForm().get(controlName()))"></fs-validation-message> -->
+      </mat-error>
+    </mat-form-field>
+
+    <!-- <fs-datepicker [datePickerFormControl]="$any(searchForm.get('date'))"></fs-datepicker>
+
+    <fs-address [addressForm]="$any(searchForm.get('addressForm'))"></fs-address> -->
+
+    <button type="submit" matButton="filled" color="primary">
+      Submit
+    </button>
+
+  </form>
+</fieldset>
